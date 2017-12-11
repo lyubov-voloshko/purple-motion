@@ -6,6 +6,7 @@ const path = require('path');
 
 module.exports = {
     context: path.join(__dirname, 'src'),
+    devtool: "sourcemap",
     entry: [
         './main.js',
     ],
