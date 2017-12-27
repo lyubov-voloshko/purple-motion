@@ -1,10 +1,2 @@
-$primary-color: #00ff00;
-$secondary-color: #00fff0;
-
-h1 {
-  color: $primary-color;
-}
-
-p {
-  color: $secondary-color
-}
+@import "colorScheme";
+@import "navBar";

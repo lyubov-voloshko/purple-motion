@@ -9,8 +9,9 @@ module.exports = {
     context: path.join(__dirname, 'src'),
     devtool: "sourcemap",
     entry: [
-        './javascript/main.js',
-        './stylesheets/allstyles.scss'
+        './javascript/main.jsx',
+        './stylesheets/allstyles.scss',
+        '../node_modules/reset-css/_reset.scss'
     ],
     output: {
         path: path.join(__dirname, 'www'),
@@ -19,11 +20,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?/,
                 exclude: /node_modules/,
-                use: [
-                    'babel-loader',
-                ],
+                use: [{
+                    loader: 'babel-loader'
+                }],
             },
             {
                 test: /\.css$/,
@@ -50,7 +51,7 @@ module.exports = {
         new ExtractTextPlugin({ // define where to save the file
             filename: '[name].bundle.css',
             allChunks: true,
-        }),
+        })
     ],
     resolve: {
         modules: [
